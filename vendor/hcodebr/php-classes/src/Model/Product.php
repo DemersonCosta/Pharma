@@ -12,7 +12,7 @@ class Product extends Model {
         $sql = new Sql();
 
         return $sql->select("SELECT a.idproduct,a.drugname,a.barcode,a.msregistry,a.price,a.recipe,a.discount, b.laboratory FROM tb_products a 
-        INNER JOIN tb_laboratories b ON b.idlaboratory = a.laboratory_idlaboratory
+        INNER JOIN tb_laboratories b ON b.idlaboratory = a.idlaboratory
         ORDER BY a.drugname ASC");
 
     }
@@ -21,8 +21,11 @@ class Product extends Model {
     {
         $sql = new Sql();
 
-        $results = $sql->select("CALL sp_products_save(:idproduct, :drugname, :barcode, :msregistry, :price, :recipe, :discount, :laboratory_idlaboratory)", array(
-            
+        $results = $sql->select("CALL sp_products_save(:idproduct, :drugname, :barcode, 
+                                                        :msregistry, :price, :recipe, 
+                                                        :discount, :idlaboratory, :idtherapeutic_classes, 
+                                                        :idspecialcontrol, :idtypesmedicine)", array(
+                                                                    
             ":idproduct"=>$this->getidproduct(),
             ":drugname"=>$this->getdrugname(), 
             ":barcode"=>$this->getbarcode(), 
@@ -30,7 +33,10 @@ class Product extends Model {
             ":price"=>$this->getprice(), 
             ":recipe"=>$this->getrecipe(), 
             ":discount"=>$this->getdiscount(),
-            ":laboratory_idlaboratory"=>$this->getlaboratory()            
+            ":idlaboratory"=>$this->getidlaboratory(),
+            ":idtherapeutic_classes"=>$this->getidtherapeutic_classes(),
+            ":idspecialcontrol"=>$this->getidspecialcontrol(),
+            ":idtypesmedicine"=>$this->getidtypesmedicine()              
         ));
 
         $this->setData($results[0]);
@@ -50,13 +56,22 @@ class Product extends Model {
        
     }
 
+    public function getValues()
+    {
+        //$this->checkPhoto();
+
+        $values = parent::getValues();
     
+        return $values;
+
+    }
+
     public function update()
     {
 
         $sql = new Sql();
 
-        $results = $sql->select("CALL sp_products_save(:drugname, :barcode, :msregistry, :price, :recipe, :discount, :laboratory_idlaboratory)", array(
+        $results = $sql->select("CALL sp_products_save(:drugname, :barcode, :msregistry, :price, :recipe, :discount, :idlaboratory, :idtherapeutic_classes, :idspecialcontrol, :idtypesmedicine)", array(
                       
             ":drugname"=>$this->getdrugname(), 
             ":barcode"=>$this->getbarcode(), 
@@ -64,9 +79,24 @@ class Product extends Model {
             ":price"=>$this->getprice(), 
             ":recipe"=>$this->getrecipe(), 
             ":discount"=>$this->getdiscount(),
-            ":laboratory_idlaboratory"=>$this->getlaboratory()            
+            ":idlaboratory"=>$this->getlaboratory(),
+            ":idtherapeutic_classes"=>$this->getidtherapeutic_classes(),
+            ":idspecialcontrol"=>$this->getidspecialcontrol(),
+            ":idtypesmedicine"=>$this->getidtypesmedicine()    
+
         ));
 
+    }
+    
+    public static function checkList($List)
+    {
+        foreach ($List as &$row) {
+          
+          $p = new Product();
+          $p->setData($row);
+          $row = $p->getValues();
+        }
+        return $List;
     }
 
     public function get($idproduct)

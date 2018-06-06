@@ -46,8 +46,8 @@
                   <input type="number" class="form-control" id="discount" name="discount" step="0.01" value="<?php echo htmlspecialchars( $product["discount"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" placeholder="0.00">
                 </div>
                  <div class="form-group">
-                  <label for="laboratory">Laboratóio</label>
-                  <input type="text" class="form-control" id="laboratory" name="laboratory" value="<?php echo htmlspecialchars( $product["laboratory_idlaboratory"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                  <label for="idlaboratory">Laboratóio</label>
+                  <input type="number" class="form-control" id="idlaboratory" name="idlaboratory" value="<?php echo htmlspecialchars( $product["idlaboratory"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
                 </div>
           </div>
           </div>

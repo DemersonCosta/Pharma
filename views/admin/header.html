@@ -256,21 +256,22 @@ desired effect
       <ul class="sidebar-menu">
         <li class="header">HEADER</li>
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="/admin/users"><i class="fa fa-users"></i> <span>Usuários</span></a></li>
-        <li><a href="/admin/categories"><i class="fa fa-link"></i> <span>Categorias</span></a></li>
-        <li><a href="/admin/products"><i class="fa fa-link"></i> <span>Produtos</span></a></li>
-        <li><a href="/admin/laboratories"><i class="fa fa-link"></i> <span>Laboratorio</span></a></li>
+        
         <li class="treeview">
-          <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
+          <a><i class="fa fa-link"></i> <span>Cadastro</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Link in level 2</a></li>
-            <li><a href="#">Link in level 2</a></li>
+              <li><a href="/admin/users"><i class="fa fa-users"></i> <span>Usuários</span></a></li>
+              <li><a href="/admin/active_principles"><i class="fa fa-link"></i> <span>Principio Ativo</span></a></li>
+              <li><a href="/admin/products"><i class="fa fa-link"></i> <span>Produtos</span></a></li>
+              <li><a href="/admin/laboratories"><i class="fa fa-link"></i> <span>Laboratorio</span></a></li>
+              <li><a href="/admin/therapeutic_classes"><i class="fa fa-link"></i> <span>Classe Terapêuta </span></a></li>
           </ul>
-        </li>
+        </li> 
+        <li><a href="#"><i class="fa fa-link"></i> <span>Produtos</span></a></li>       
       </ul>
       <!-- /.sidebar-menu -->
     </section>

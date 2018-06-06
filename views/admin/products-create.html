@@ -50,10 +50,33 @@
               <label for="discount">Desconto</label>
               <input type="number" class="form-control" id="discount" name="discount" step="0.01" placeholder="0.00">
             </div>
-             <div class="form-group">
-              <label for="laboratory">Laboratóio</label>
-              <input type="text" class="form-control" id="laboratory" name="laboratory">
+            <div class="form-group"> 
+                Laboratóio
+                <select name="idlaboratory">
+                    {loop="$laboratories"} 
+                         echo "<option value="{$value.idlaboratory}">{$value.laboratory}</option>";
+                    {/loop}
+                </select>
+                Classe Terapeuta 
+                <select name="idtherapeutic_classes">
+                    {loop="$therapeutic_Classes"} 
+                         echo "<option value="{$value.idtherapeutic_classes}">{$value.therapeutic_class}</option>";
+                    {/loop}
+                </select>        
+            </div> 
+
+            <div class="form-group">            
+                <input type="radio" name="idspecialcontrol" value="1"> Sem Controle
+                <input type="radio" name="idspecialcontrol" value="2"> Controle Portaria 
+                <input type="radio" name="idspecialcontrol" value="3"> Controle Antimicrobiano<br><br>
             </div>
+
+            <div class="form-group">             
+              <input type="radio" name="idtypesmedicine" value="1"> Genérico
+              <input type="radio" name="idtypesmedicine" value="2"> Similar 
+              <input type="radio" name="idtypesmedicine" value="3"> Referência<br><br>
+            </div>           
+        
           </div>
           <!-- /.box-body -->
           <div class="box-footer">

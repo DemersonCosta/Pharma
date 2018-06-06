@@ -31,6 +31,15 @@ class laboratory extends Model {
       
     } 
 
+    public function getValues()
+    {        
+
+        $values = parent::getValues();
+    
+        return $values;
+
+    }
+
     public function delete()
     {
 

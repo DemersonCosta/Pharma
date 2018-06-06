@@ -50,10 +50,35 @@
               <label for="discount">Desconto</label>
               <input type="number" class="form-control" id="discount" name="discount" step="0.01" placeholder="0.00">
             </div>
-             <div class="form-group">
-              <label for="laboratory">Laboratóio</label>
-              <input type="text" class="form-control" id="laboratory" name="laboratory">
+            <div class="form-group"> 
+                Laboratóio
+                <select name="idlaboratory">
+                    <?php $counter1=-1;  if( isset($laboratories) && ( is_array($laboratories) || $laboratories instanceof Traversable ) && sizeof($laboratories) ) foreach( $laboratories as $key1 => $value1 ){ $counter1++; ?> 
+                         echo "<option value="<?php echo htmlspecialchars( $value1["idlaboratory"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["laboratory"], ENT_COMPAT, 'UTF-8', FALSE ); ?></option>";
+                    <?php } ?>
+
+                </select>
+                Classe Terapeuta 
+                <select name="idtherapeutic_classes">
+                    <?php $counter1=-1;  if( isset($therapeutic_Classes) && ( is_array($therapeutic_Classes) || $therapeutic_Classes instanceof Traversable ) && sizeof($therapeutic_Classes) ) foreach( $therapeutic_Classes as $key1 => $value1 ){ $counter1++; ?> 
+                         echo "<option value="<?php echo htmlspecialchars( $value1["idtherapeutic_classes"], ENT_COMPAT, 'UTF-8', FALSE ); ?>"><?php echo htmlspecialchars( $value1["therapeutic_class"], ENT_COMPAT, 'UTF-8', FALSE ); ?></option>";
+                    <?php } ?>
+
+                </select>        
+            </div> 
+
+            <div class="form-group">            
+                <input type="radio" name="idspecialcontrol" value="1"> Sem Controle
+                <input type="radio" name="idspecialcontrol" value="2"> Controle Portaria 
+                <input type="radio" name="idspecialcontrol" value="3"> Controle Antimicrobiano<br><br>
             </div>
+
+            <div class="form-group">             
+              <input type="radio" name="idtypesmedicine" value="1"> Genérico
+              <input type="radio" name="idtypesmedicine" value="2"> Similar 
+              <input type="radio" name="idtypesmedicine" value="3"> Referência<br><br>
+            </div>           
+        
           </div>
           <!-- /.box-body -->
           <div class="box-footer">

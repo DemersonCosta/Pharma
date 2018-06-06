@@ -30,6 +30,23 @@ $app->get('/admin/laboratories/create', function(){
 
 });
 
+
+$app->post('/admin/laboratories/create', function(){
+
+	User::verifyLogin();
+
+    $laboratory = new Laboratory();   
+
+	$laboratory->setData($_POST);
+	//var_dump($_POST);
+	$laboratory->save();
+
+	header("Location: /admin/laboratories");
+
+	exit;
+
+});
+
 $app->get('/admin/laboratories/:idlaboratory/delete', function($idlaboratory){
 
 	User::verifyLogin();
@@ -39,24 +56,6 @@ $app->get('/admin/laboratories/:idlaboratory/delete', function($idlaboratory){
 	$laboratory->get((int)$idlaboratory);
 
 	$laboratory->delete();
-
-	header("Location: /admin/laboratories");
-
-	exit;
-
-});
-
-$app->post('/admin/laboratories/create', function(){
-
-	User::verifyLogin();
-
-    $laboratory = new Laboratory();	
-    
-    var_dump($_POST);
-
-	$laboratory->setData($_POST);
-
-	$laboratory->save();
 
 	header("Location: /admin/laboratories");
 
@@ -88,7 +87,7 @@ $app->post('/admin/laboratories/:idlaboratory', function($idlaboratory){
 	$laboratory = new Laboratory();	    
 
     $laboratory->get((int)$idlaboratory);
-    var_dump($_POST);
+    //var_dump($_POST);
 	$laboratory->setData($_POST);
 
 	$laboratory->save();
@@ -99,6 +98,8 @@ $app->post('/admin/laboratories/:idlaboratory', function($idlaboratory){
 	
 
 });
+
+
 
 
 

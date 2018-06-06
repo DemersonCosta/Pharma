@@ -15,7 +15,7 @@
 <!-- Main content -->
 <section class="content">
 
-  <!-- Your Page Content Here -->
+  Index
 
 </section>
 <!-- /.content -->
