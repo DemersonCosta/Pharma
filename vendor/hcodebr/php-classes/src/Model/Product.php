@@ -58,7 +58,7 @@ class Product extends Model {
 
     public function getValues()
     {
-        //$this->checkPhoto();
+        $this->checkPhoto();
 
         $values = parent::getValues();
     

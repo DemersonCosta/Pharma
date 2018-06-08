@@ -24,6 +24,8 @@ require_once("admin-therapeutic_classes.php");
 
 require_once("admin-active_principles.php");
 
+require_once("admin-cart.php");
+
 require_once("functions.php");
 
 $app->run();

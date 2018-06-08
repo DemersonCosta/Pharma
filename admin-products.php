@@ -7,6 +7,7 @@ use \Hcode\Model\Laboratory;
 use \Hcode\Model\SpecialControl;
 use \Hcode\Model\TypesMedicine;
 use \Hcode\Model\Therapeutic_Classes;
+use \Hcode\Model\Cart;
 
 $app->get('/admin/products', function(){
 
@@ -68,8 +69,6 @@ $app->post('/admin/products/create', function(){
 	
 	$product->setData($_POST);
 
-	var_dump($_POST);
-
 	$product->save();
 
 	header("Location: /admin/products");
@@ -115,7 +114,22 @@ $app->post('/admin/products/:idproduct', function($idproduct){
 	
 
 });
+//Produto para vendas
+$app->get('/admin/products_sale', function(){
 
+	User::verifyLogin();
+
+	$products = Product::listAll();
+
+	$page = new PageAdmin();
+
+	$page->setTpl("products_sale", [
+
+		"products"=>$products
+
+	]);
+
+});
 
 
 

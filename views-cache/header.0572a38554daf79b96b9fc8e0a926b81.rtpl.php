@@ -24,6 +24,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
   -->
   <link rel="stylesheet" href="/res/admin/dist/css/skins/skin-blue.min.css">
 
+  <link rel="stylesheet" href="/res/site/css/owl.carousel.css">
+  <link rel="stylesheet" href="/res/site/css/style.css">
+  <link rel="stylesheet" href="/res/site/css/responsive.css">
+
+
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -271,7 +276,8 @@ desired effect
               <li><a href="/admin/therapeutic_classes"><i class="fa fa-link"></i> <span>Classe Terapêuta </span></a></li>
           </ul>
         </li> 
-        <li><a href="#"><i class="fa fa-link"></i> <span>Produtos</span></a></li>       
+        <li><a href="/admin/products_sale"><i class="fa fa-link"></i> <span>Produtos</span></a></li> 
+        <li><a href="/admin/cart"><i class="fa fa-link"></i> <span>Carrinho</span></a></li>      
       </ul>
       <!-- /.sidebar-menu -->
     </section>

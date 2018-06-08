@@ -11,22 +11,22 @@ use \Hcode\Model\Product;
 
 class Cart extends Model {	
 
-	const SESSION = "Cart";
+	const SESSION = "idcart";
 	const SESSION_ERROR = "CartErro";
 
 	public static function getFromSession()
 	{
 		$cart = new Cart();
 
-		if (isset($_SESSION[Cart::SESSION]) && (int)$_SESSION[Cart::SESSION]['idcart']>0) {
+		if (isset($_SESSION[Cart::SESSION]) && (int)$_SESSION[Cart::SESSION]['idcart'] > 0) {
 
-			$cart->get((int)$_SESSION[Cart::SESSION]['idcart']);
+			 $cart->get((int)$_SESSION[Cart::SESSION]['idcart']);
 
 		} else {
 
 			$cart->getFromSessionID();
 
-			if (!(int)$cart->getidcart()>0) {
+			if (!(int)$cart->getidcart() > 0) {
 				
 				$data = [
 					'dessessionid'=>session_id()

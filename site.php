@@ -2,7 +2,6 @@
 
 use \Hcode\Page;
 use \Hcode\Model\Product;
-use \Hcode\Model\Category;
 use \Hcode\Model\Cart;
 
 $app->get('/', function() {
