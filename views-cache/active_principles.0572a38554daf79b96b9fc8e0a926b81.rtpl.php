@@ -28,7 +28,7 @@
                   <tr>
                     <th style="width: 10px">#</th>
                     <th>Nome do Principio Ativo</th>
-                    <th style="width: 240px">&nbsp;</th>
+                    <th style="width: 340px">&nbsp;</th>
                   </tr>
                 </thead>
                 <tbody>

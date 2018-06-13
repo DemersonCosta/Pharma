@@ -148,21 +148,50 @@ class Cart extends Model {
 	{
 
 		$sql = new Sql();
-
+		
 		$rows = $sql->select("
-			SELECT b.idproduct, b.desproduct, b.vlprice, b.vlwidth, b.vlheight, b.vllength, b.vlwidth, b.desurl, 
-			COUNT(*) AS nrqtd, SUM(b.vlprice) AS vltotal
-			FROM tb_cartsproducts a 
-			INNER JOIN tb_products b ON a.idproduct = b.idproduct
-			WHERE a.idcart = :idcart AND a.dtremoved IS NULL 
-			GROUP BY b.idproduct, b.desproduct, b.vlprice, b.vlwidth, b.vlheight, b.vllength, b.vlwidth, b.desurl
-			ORDER BY b.desproduct
+			   SELECT b.idproduct, b.drugname, b.msregistry, b.barcode, b.recipe, 
+			      b.idlaboratory, b.idtherapeutic_classes, b.idspecialcontrol, b.idtypesmedicine, b.price,b.discount,
+			      COUNT(*) AS nrqtd,SUM(b.price) AS vltotal      
+			      FROM tb_cartsproducts a 
+			      INNER JOIN tb_products b ON a.idproduct = b.idproduct
+			      WHERE a.idcart = :idcart AND a.dtremoved IS NULL 
+			      GROUP BY b.idproduct, b.drugname, b.msregistry, b.barcode,
+			      b.recipe, b.idlaboratory, b.idtherapeutic_classes, 
+			      b.idspecialcontrol, b.idtypesmedicine, b.price, b.discount
+			      ORDER BY b.drugname
 			", [
 				':idcart'=>$this->getidcart()
 
 			]);
 
 		return Product::checkList($rows);
+	}  
+
+	public function getProductsTotals()
+	{
+
+		$sql = new Sql();
+		
+		$results = $sql->select("
+			SELECT SUM(price) AS pricetotal, COUNT(*) AS nrqtd FROM tb_products a 
+			INNER JOIN tb_cartsproducts b on a.idproduct = b.idproduct
+			WHERE idcart = :idcart AND dtremoved IS NULL
+
+			", [
+				':idcart'=>$this->getidcart()
+
+			]);
+
+		if (count($results) > 0) {
+			
+			return $results[0];
+
+		}else{
+
+			 return [];
+			
+		}
 	}  
 
 }

@@ -1,0 +1,68 @@
+<?php if(!class_exists('Rain\Tpl')){exit;}?><!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+          <h1>
+            Lista de Lotes
+          </h1>
+        </section>
+        
+        <!-- Main content -->
+        <section class="content">
+        
+          <div class="row">
+              <div class="col-md-12">
+                  <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Editar Lot</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form role="form" action="/admin/lots/<?php echo htmlspecialchars( $lot["idlot"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" method="post" enctype="multipart/form-data">
+                  <div class="box-body">                      
+                         <div class="form-group">
+                          <label for="description">Descrição</label>
+                          <input type="text" class="form-control" id="description" name="description" value="<?php echo htmlspecialchars( $lot["description"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                        </div>
+                  </div>
+                  <div class="box-body">                      
+                         <div class="form-group">
+                          <label for="expiration_date">Data de Validade</label>
+                          <input type="date" class="form-control" id="expiration_date" name="expiration_date" value="<?php echo htmlspecialchars( $lot["expiration_date"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                        </div>
+                  </div>
+                  <div class="box-body">                      
+                         <div class="form-group">
+                          <label for="fabrication_date">Data de Fabricação</label>
+                          <input type="date" class="form-control" id="fabrication_date" name="fabrication_date" value="<?php echo htmlspecialchars( $lot["fabrication_date"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
+                        </div>
+                  </div>
+                  </div>
+                  <!-- /.box-body -->
+                  <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                  </div>
+                </form>
+              </div>
+              </div>
+          </div>
+        
+        </section>
+        <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+        <script>
+        document.querySelector('#file').addEventListener('change', function(){
+          
+          var file = new FileReader();
+        
+          file.onload = function() {
+            
+            document.querySelector('#image-preview').src = file.result;
+        
+          }
+        
+          file.readAsDataURL(this.files[0]);
+        
+        });
+        </script>

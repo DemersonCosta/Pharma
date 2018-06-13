@@ -3,12 +3,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Lista de Produtos
+            Lista de Fornecedor
           </h1>
           <ol class="breadcrumb">
             <li><a href="/admin"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="/admin/laboratories/">Laboratorio</a></li>
-            <li class="active"><a href="/admin/laboratories/create">Cadastrar</a></li>
+            <li><a href="/admin/providers/">Fornecedor</a></li>
+            <li class="active"><a href="/admin/providers/create">Cadastrar</a></li>
           </ol>
         </section>
         
@@ -19,15 +19,27 @@
               <div class="col-md-12">
                   <div class="box box-success">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Novo Laboratorio</h3>
+                  <h3 class="box-title">Novo Fornecedor</h3>
                 </div>
                 <!-- /.box-header -->
                 <!-- form start -->
-                <form role="form" action="/admin/laboratories/create" method="post">
+                <form role="form" action="/admin/providers/create" method="post">
+                  <div class="box-body">                  
+                     <div class="form-group col-ms-6">
+                      <label for="provider">Fornecedor</label>
+                      <input type="text" class="form-control" id="provider" name="provider">
+                    </div>
+                  </div>
                   <div class="box-body">                  
                      <div class="form-group">
-                      <label for="laboratory">Laboratório</label>
-                      <input type="text" class="form-control" id="laboratory" name="laboratory">
+                      <label for="cnpj">CNPJ</label>
+                      <input type="text" class="form-control" id="cnpj" name="cnpj">
+                    </div>
+                  </div>
+                  <div class="box-body">                  
+                     <div class="form-group">
+                      <label for="address">Endereço</label>
+                      <input type="text" class="form-control" id="address" name="address">
                     </div>
                   </div>
                   <!-- /.box-body -->

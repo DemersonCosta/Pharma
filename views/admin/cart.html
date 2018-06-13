@@ -30,33 +30,34 @@
                                         <th class="product-subtotal">Total</th>
                                     </tr>
                                 </thead>
-                                <tbody>                                    
+                                <tbody>  
+                                {loop="$products"}                                  
                                     <tr class="cart_item">
                                         <td class="product-remove">
-                                            <a title="Remove this item" class="remove" href="#">×</a> 
+                                            <a title="Remove this item" class="remove" href="/admin/cart/{$value.idproduct}/remove">×</a> 
                                         </td>
                                      
                                         <td class="product-name">
-                                            <a href="#">Ship Your Idea</a> 
+                                            <a href="#">{$value.drugname}</a> 
                                         </td>
 
                                         <td class="product-price">
-                                            <span class="amount">$700.00</span> 
+                                            <span class="amount">R${function="formatPrice($value.price)"}</span> 
                                         </td>
 
                                         <td class="product-quantity">
                                             <div class="quantity buttons_added">
-                                                <input type="button" class="minus" value="-" onclick="window.location.href = '#'">
-                                                <input type="number" size="4" class="input-text qty text" title="Qty" value="1" min="0" step="1">
-                                                <input type="button" class="plus" value="+" onclick="window.location.href = '#'">
+                                                <input type="button" class="minus" value="-" onclick="window.location.href = '/admin/cart/{$value.idproduct}/minus'">
+                                                <input type="number" size="4" class="input-text qty text" title="Qty" value="{$value.nrqtd}" min="0" step="1">
+                                                <input type="button" class="plus" value="+" onclick="window.location.href = '/admin/cart/{$value.idproduct}/add'">
                                             </div>
                                         </td>
 
                                         <td class="product-subtotal">
-                                            <span class="amount">$700.00</span> 
+                                            <span class="amount">R${function="formatPrice($value.vltotal)"}</span> 
                                         </td>
                                     </tr>
-                                    
+                                    {/loop}
                                 </tbody>
                             </table>
                             <div class="cart-collaterals">
@@ -70,7 +71,7 @@
 
                                             <tr class="order-total">
                                                 <th>Total</th>
-                                                <td><strong><span class="amount">$705.00</span></strong> </td>
+                                                <td><strong><span class="amount">R${function="formatPrice($total.pricetotal)"}</span></strong> </td>
                                             </tr>
                                         </tbody>
                                     </table>

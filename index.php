@@ -28,6 +28,14 @@ require_once("admin-cart.php");
 
 require_once("functions.php");
 
+require_once("admin-provider.php");
+
+require_once("admin-lots.php");
+
+require_once("admin-puchases.php");
+
+
+
 $app->run();
 
  ?>

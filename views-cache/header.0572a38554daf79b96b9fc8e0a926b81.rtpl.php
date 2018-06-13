@@ -274,10 +274,23 @@ desired effect
               <li><a href="/admin/products"><i class="fa fa-link"></i> <span>Produtos</span></a></li>
               <li><a href="/admin/laboratories"><i class="fa fa-link"></i> <span>Laboratorio</span></a></li>
               <li><a href="/admin/therapeutic_classes"><i class="fa fa-link"></i> <span>Classe Terapêuta </span></a></li>
+              <li><a href="/admin/providers"><i class="fa fa-link"></i> <span>Fornecedor</span></a></li> 
+              <li><a href="/admin/lots"><i class="fa fa-link"></i> <span>Lot</span></a></li>
           </ul>
         </li> 
-        <li><a href="/admin/products_sale"><i class="fa fa-link"></i> <span>Produtos</span></a></li> 
-        <li><a href="/admin/cart"><i class="fa fa-link"></i> <span>Carrinho</span></a></li>      
+          <li class="treeview">
+          <a><i class="fa fa-link"></i> <span>Area de Venda</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+                <li><a href="/admin/products_sale"><i class="fa fa-link"></i> <span>Produtos</span></a></li> 
+                <li><a href="/admin/cart"><i class="fa fa-link"></i><span>Venda de produto</span></a></li>     
+          </ul>
+        </li> 
+         
+        <li><a href="/admin/purchases"><i class="fa fa-link"></i> <span>Cadastrar Nota FIiscal</span></a></li>      
       </ul>
       <!-- /.sidebar-menu -->
     </section>
